@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import connectDB from './config/db.js'
+import userRouter from './routes/userRouter.js'
 
 // App Config
 const PORT = process.env.PORT || 4000
@@ -11,9 +12,10 @@ await connectDB()
 app.use(express.json())        
 app.use(cors())                
 
-// Test Route
+// API Route
 app.get('/', (req, res) => {
   res.send("API Working for bgRemoval")
+  app.use('/api/user',userRouter)
 })
 
 // Start Server
