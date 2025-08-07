@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { assets } from '../assets/assets'
+import { assets, plans } from '../assets/assets'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@clerk/clerk-react'
@@ -68,9 +68,7 @@ function BuyCredit() {
        <button onClick={()=>paymentRazorpay(item.id)}  className='w-full bg-gray-800 text-white mt-8 text-sm rounded-md py-2.5 min-w-52'>Purchase</button>
       </div>
     ))}
-
     </div>
-
     </div>
   )
 }

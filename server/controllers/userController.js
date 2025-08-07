@@ -5,7 +5,7 @@ import transactionModel from '../models/transactionModel.js'
 
 // API Controller Function to manage Clerk User with database
 // https://localhost:4000/api/user/webhooks
-const clerkWebhooks = async(req,res)=>{
+const clerkWebhooks = async(req,res)=> {
 try{
   // create a svix instance with clerk webhook secret.
   const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
@@ -36,7 +36,7 @@ try{
         lastName:data.last_name,
         photo:data.image_url
       }
-      await userModel.findOneAndUpdate({cleckId:data.id},userData)
+      await userModel.findOneAndUpdate({clerkId:data.id},userData)
       res.json({})
      break;
     }
@@ -58,7 +58,7 @@ try{
 const userCredits = async(req,res)=>{
   try{
      const {clerkId} = req.body
-     const userData = await userModel.findOne(clerkId)
+     const userData = await userModel.findOne({clerkId})
      res.json({success:true,credits:userData.creditBalance})
   }catch(error){
     console.log(error)

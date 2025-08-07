@@ -4,17 +4,23 @@
 
 .slider{
   -webkit-appearance:none;
+  height:100%;
   background: transparent;
 }
-.slide::-webkit-slider-thumb{
+.slide::-webkit-slider-thumb {
+  -webkit-appearance: none; 
   appearance: none;
-  width:30px;
-  min-height: 30px;
-  background-image: url('/slide_icon.svg');
+  width: 30px;
+  height: 30px;
+  background-image: url(/slide_icon.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
 }
+
 *{
   font-family: "Outfit", sans-serif;
 }
