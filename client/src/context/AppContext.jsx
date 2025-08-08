@@ -23,12 +23,13 @@ const AppContextProvider = (props) => {
       const { data } = await axios.get(`${backendUrl}/api/user/credits`, {
         headers: { token },
       });
+      console.log(data)
       if (data.success) {
         setCredit(data.credits);
       }
     } catch (error) {
       console.log(error);
-      toast(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -57,14 +58,16 @@ const AppContextProvider = (props) => {
       } else {
         toast.error(data.message);
         data.creditBalance && setCredit(data.creditBalance);
+        if(data.creditBalance === 0){
         navigate("/buy");
+        }
       }
     } catch (error) {
       console.log(error);
       toast(error.message);
     }
   };
-
+  {console.log(credit)}
   const value = {
     credit,
     setCredit,

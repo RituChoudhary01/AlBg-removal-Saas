@@ -7,7 +7,8 @@ try{
   return res.json({success:false,message:'Not Authorized Login Again'})
  }
  const token_decode = jwt.decode(token)
- req.body_decode = token_decode.clerkId
+ console.log(token_decode)
+ req.body.clerkId = token_decode.clerkId
  next()
 }catch(error){
   console.log(error.message)
@@ -15,3 +16,4 @@ try{
 }
 }
 export default authUser
+

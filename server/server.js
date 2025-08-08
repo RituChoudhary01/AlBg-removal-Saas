@@ -18,8 +18,6 @@ app.get('/', (req, res) => {
   res.send("API Working for bgRemoval")})
   app.use('/api/user',userRouter)
   app.use('/api/image',imageRouter)
-
-
 // Start Server
 app.listen(PORT, () => {
   console.log(`Server Running on port ${PORT}`)

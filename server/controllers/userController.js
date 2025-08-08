@@ -60,7 +60,7 @@ const userCredits = async(req,res)=>{
      const {clerkId} = req.body
      const userData = await userModel.findOne({clerkId})
      res.json({success:true,credits:userData.creditBalance})
-  }catch(error){
+  }catch(error){ 
     console.log(error)
     res.json({success:false, message:error.message})
  }
@@ -142,8 +142,7 @@ try{
   await transactionModel.findByIdAndUpdate(transactionData._id,{payment:true})
   res.json({success:true,message:'Credits Added'})
   }
-
-}catch(error){
+  }catch(error){
     console.log(error)
     res.json({success:false, message:error.message})
  }

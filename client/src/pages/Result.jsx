@@ -37,7 +37,6 @@ function Result() {
       </div>
      }
     </div>
-
     </div>
   )
 }
